@@ -77,6 +77,11 @@ kotlin.sourceSets {
             api(project(":ktor-client:ktor-client-js"))
         }
     }
+    posixTest {
+        dependencies {
+            api(project(":ktor-client:ktor-client-cio"))
+        }
+    }
 
 //    if (!ideaActive) {
 //        listOf("linuxX64Test", "mingwX64Test", "macosX64Test").map { getByName(it) }.forEach {
@@ -112,7 +117,9 @@ if (!ideaActive) {
         "iosTest",
         "mingwX64Test",
         "jsNodeTest",
-        "jsBrowserTest"
+        "jsBrowserTest",
+        "posixTest",
+        "darwinTest"
     )
 }
 
@@ -125,10 +132,10 @@ rootProject.allprojects {
     }
 }
 
-gradle.buildFinished {
-    if (startTestServer.server != null) {
-        startTestServer.server?.close()
-        println("[TestServer] stop")
-    }
-}
-
+//gradle.buildFinished {
+//    if (startTestServer.server != null) {
+//        startTestServer.server?.close()
+//        println("[TestServer] stop")
+//    }
+//}
+//

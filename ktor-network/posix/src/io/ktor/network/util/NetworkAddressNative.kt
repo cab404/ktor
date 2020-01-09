@@ -24,7 +24,7 @@ internal sealed class SocketAddress(
     val family: sa_family_t,
     val port: Int
 ) {
-    internal open fun nativeAddress(block: (address: CPointer<sockaddr>, size: socklen_t) -> Unit) {}
+    internal abstract fun nativeAddress(block: (address: CPointer<sockaddr>, size: socklen_t) -> Unit)
 }
 
 

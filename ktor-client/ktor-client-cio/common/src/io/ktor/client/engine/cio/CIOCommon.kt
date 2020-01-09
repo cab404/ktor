@@ -7,6 +7,8 @@ package io.ktor.client.engine.cio
 import io.ktor.client.engine.*
 import io.ktor.util.*
 
+private val initHook = CIO
+
 /**
  * [HttpClientEngineFactory] using a Coroutine based I/O implementation without additional dependencies
  * with the the associated configuration [CIOEngineConfig].

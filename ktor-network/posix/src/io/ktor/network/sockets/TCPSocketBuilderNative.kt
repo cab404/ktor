@@ -21,7 +21,7 @@ internal actual suspend fun TCPSocketBuilder.Companion.connect(
     val descriptor = socket(remote.family.convert(), SOCK_STREAM, 0).check()
 
     remote.nativeAddress { address, size ->
-        connect(descriptor, address, size).check()
+        connect(descriptor, address, size).check("Errno: $errno")
     }
 
     fcntl(descriptor, F_SETFL, O_NONBLOCK).check()
